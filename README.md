@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#### Bryntum gantt-taskboard test
 
-## Getting Started
+Hello, this repo is a reproduction of an error we get when trying to display a bryntum Gantt and a bryntum Taskboard on a same page with tabs
 
-First, run the development server:
+In this repo, you'll find a page with 2 tabs, a Gantt one and a Taskboard one, it's a reproduction of the error I have on the website.
 
-```bash
+I tried two different configurations:
+
+- 1st One, This is the original error on the website:
+
+  -Bryntum Gantt version: 6.1.9
+
+  -Bryntum Taskboard version: 6.2.0
+
+So, in this configuration the error is this:
+
+![Blank color picker](image-1.png)
+
+As you can see in this screenshot, the color picker doesn't display colors, and the picked color is not showing on the left (the black rectangle), it is only a CSS issue, after looking for solutions with dev console on my navigator I saw that there is a kiss with "bg-color: transparent" that makes the colors disappear. This occurs only in this configuration where we display the two on the same page or with tabs.
+
+- 2nd One, Found after trying to correct the 1st one:
+  Because of the previous issue, I tried to change the version of the Gantt to match the Taskboard, so:
+
+  -Bryntum Gantt version: 6.2.3
+
+  -Bryntum Taskboard version: 6.2.3
+
+Here is the error I get when I try to put a Gantt and a Task Board in the Same page or within tabs inside a page
+![error](image.png)
+
+to run the project :
+
+```shell
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
